@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DevBoard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-code-slash" viewBox="0 0 16 16" id="Dev-icon">
+                    <path
+                        d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                </svg>
+                <p>DevBoard</p>
+            </h1>
+            <hr class="line">
+            <ul class="main-list ">
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/home-icon.png" alt="home"
+                            height="15">Dashboard</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/folder-icon.png" alt="folder"
+                            height="15">Projects</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/analitics-icon.png"
+                            alt="analytics" height="15">Analytics</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/email.png" alt="email"
+                            height="15">Messages</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/settings.png" alt="settings"
+                            height="15">Settings</button></li>
+            </ul>
+            <hr class="line">
+
+            <ul class="login-list">
+                <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/user.png" alt="profile"
+                            height="15">Profile</button></li>
+                <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/turn-off.png" alt="logout"
+                            height="15">Logout</button></li>
+            </ul>
+
+
+            <button class="Profile">
+                <img class="Profile-img" src="./pngs/profile.png" alt="profile" height="50">
+                <div class="Profile-text">
+                    <span>John Doe</span>
+                    <p>john.@example.com</p>
+                </div>
+            </button>
+
+        </aside>
+
+        <div class="main">
+            <div class="navbar-container">
+                <nav class="navbar">
+                    <div class="search">
+                        <img class="search-icon" src="./pngs/magnifying-glass.png" alt="search" height="15">
+                        <input type="text" placeholder="Search a project..." class="search-input">
+                    </div>
+
+                    <div class="notify">
+                        <a href="#"><img class="notify-icon" src="./pngs/notify.png" alt="notifications"
+                                height="15"></a>
+                        <a href="#" id="Profile"><img class="Profile-img" src="./pngs/profile.png" alt="profile"
+                                height="50"></a>
+                    </div>
+                </nav>
+                <hr class="nav-line">
+
+
+                <section class="content">
+
+                    <div class="cards-container">
+                        <div class="card first">
+                            <h3><img src="./pngs/folder-icon.png" alt="folder icon" height="20"
+                                    class="content-icon">Projects
+                            </h3>
+                            <span class="indicator project-cnt">0</span>
+                            <p class="details">+2 this week</p>
+                        </div>
+
+                        <div class="card second">
+                            <h3><img src="./pngs/checklist.png" alt="checklist icon" height="20"
+                                    class="content-icon">Tasks
+                            </h3>
+                            <span class="indicator ">34</span>
+                            <p class="details">+8 this week</p>
+                        </div>
+
+                        <div class="card third">
+                            <h3><img src="./pngs/git.png" alt="commit icon" height="20" class="content-icon">Commits
+                            </h3>
+                            <span class="indicator ">128</span>
+                            <p class="details">+32 this week</p>
+                        </div>
+
+                        <div class="card fourth">
+                            <h3><img src="./pngs/clock.png" alt="productivity icon" height="20"
+                                    class="content-icon">Productivity</h3>
+                            <span class="indicator ">87%</span>
+                            <p class="details">Good</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- project+activity container -->
+                <div class="bottom-row">
+
+                    <div class="projects-container">
+                        <!-- just the button and text in main container -->
+                        <div class="Text-above">
+                            <span id="Projects">Projects</span>
+                            <button class="main-delete-btn"><img src="./pngs/delete.png" alt=""></button>
+                            <button class="edit-delete-btn">...</button>
+                            <div class="menu">
+                                <button class="add"><img src="./pngs/add-post.png" alt="" style="filter: invert();">Add the
+                                    project</button>
+                                <button class="edit"><img src="./pngs/edit.png" alt=""
+                                        style="filter: invert();">Edit</button>
+                                <button class="delete"><img src="./pngs/delete.png" alt="">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Project cards container-->
+                        <div class="projects">
+                            <!-- Project cards -->
+                            <div class="project-cards">
+                                <span class="Project-name">Productivity Tracker</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                                <p class="project-text">Track your daily coding sessions and boost your productivity.
+                                </p>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-10"></div>
+                                </div>
+                                <div class="percentage">
+                                    <p id="percentage">+2 this week</p>
+                                    <button class="view">View</button>
+                                </div>
+                            </div>
+
+                            <div class="project-cards">
+                                <span class="Project-name">Task Manager</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                                <p class="project-text">Organize your workflow efficiently by managing tasks.</p>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-70"></div>
+                                </div>
+                                <div class="percentage">
+                                    <p id="percentage">+8 this week</p>
+                                    <button class="view">View</button>
+                                </div>
+                            </div>
+
+                            <div class="project-cards">
+                                <span class="Project-name">Ai assistant</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                                <p class="project-text">Get smart suggestions and automate repetitive tasks with an
+                                    intelligent assistant.</p>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-50"></div>
+                                </div>
+                                <div class="percentage">
+                                    <p id="percentage">+50% <span class="progress">in progress</span></p>
+                                    <button class="view">View</button>
+                                </div>
+                            </div>
+
+                            <div class="project-cards">
+                                <span class="Project-name">Secure Cloud Sync</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                                <p class="project-text">Keep your data safe and accessible across many devices.</p>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-100"></div>
+                                </div>
+                                <div class="percentage">
+                                    <p id="percentage">+100% <span class="complete">complete</span></p>
+                                    <button class="view">View</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="activity-container">
+                        <div class="activity-above">
+                            <span id="recent-title">Recent Activity</span>
+                            <button class="edit-delete-btn">...</button>
+                        </div>
+
+                        <div class="activity-cards">
+
+                            <div class="act-card">
+                                <div class="activity">
+                                    <img src="./pngs/check.png" alt="" height="20" class="act-icons">
+                                    <p class="activity-text">John pushed to 'main' in DevBoard</p>
+                                    <span class="act-under-text">10 minutes ago</span>
+                                </div>
+                            </div>
+
+                            <div class="act-card">
+                                <div class="activity">
+                                    <img src="./pngs/bug-report.png" alt="" height="20" class="act-icons" id="bug">
+                                    <p class="activity-text">Bug reported: Fix login issues</p>
+                                    <span class="act-under-text">1 hour ago</span>
+                                </div>
+                            </div>
+
+                            <div class="act-card">
+                                <div class="activity">
+                                    <img src="./pngs/checky.png" alt="" height="20" class="act-icons">
+                                    <p class="activity-text">Sarah completed the task "Update does"</p>
+                                    <span class="act-under-text">3 hour ago</span>
+                                </div>
+                            </div>
+
+                            <div class="act-card">
+                                <div class="activity">
+                                    <img src="./pngs/add.png" alt="" height="20" class="act-icons">
+                                    <p class="activity-text">New repo "UI Redesign" created</p>
+                                    <span class="act-under-text">1 day ago</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>
