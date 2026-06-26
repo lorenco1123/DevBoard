@@ -241,24 +241,6 @@ body::after {
     transition: filter 0.4s ease-in-out;
 }
 
-.Profile {
-    text-decoration: none;
-    display: flex;
-    margin-top: auto;
-    color: #c7c6c9;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #1d1d2c;
-    border-radius: 10px;
-    background: linear-gradient(50deg, #857da31a 20%, #35315a1a 50%, #9f96f01a 100%);
-    backdrop-filter: blur(10px);
-    opacity: 0.7;
-    animation: glow 4s ease infinite, appearing 2s ease;
-    transition: opacity 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
-}
 
 @keyframes glow {
     0% {
@@ -274,40 +256,6 @@ body::after {
     }
 }
 
-.Profile:hover {
-    opacity: 1;
-}
-
-.Profile span {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    text-align: start;
-}
-
-.Profile p {
-    opacity: 0.5;
-    font-weight: 600;
-    margin: 0;
-    font-size: 14px;
-    color: #85838d;
-}
-
-.Profile-text {
-    display: flex;
-    flex-direction: column;
-}
-
-#Profile {
-    margin-right: 20px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.4s ease;
-}
-
-#Profile:hover {
-    opacity: 1;
-}
 
 .search-icon {
     position: absolute;
@@ -351,13 +299,48 @@ body::after {
 }
 
 .notify-icon {
-    position: relative;
-    height: 30px;
-    bottom: 10px;
-    cursor: pointer;
-    transition: filter 0.4s ease;
-    margin-right: 20px;
+    height: 28px;
+    transition: filter 0.2s ease;
     filter: invert(0.5);
+}
+
+.notify-icon:hover {
+    filter: invert(0.7);
+}
+
+.notify-icon:active {
+    filter: invert(1) brightness(1.3);
+}
+
+.notification{
+    bottom: 10px;
+    position: relative;
+    cursor: pointer;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+}
+
+#Profile {
+    margin-right: 20px;
+    cursor: pointer;
+    filter: brightness(0.7);
+    transition: filter 0.2s ease;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+}
+
+#Profile:hover {
+    filter: brightness(0.9);
+}
+
+#Profile:active{
+    filter: brightness(1.1);
 }
 
 .navbar {
@@ -376,12 +359,6 @@ body::after {
     padding: 5px 10px;
     border-radius: 10px;
     flex: 1;
-}
-
-
-
-.notify-icon:hover {
-    filter: invert(1);
 }
 
 .navbar-container {
@@ -880,7 +857,7 @@ body::after {
     margin-top: 10px;
     box-shadow: 0px 4px 20px #120f25;
     background: linear-gradient(170deg, #171e30 0%, #1a1a2e 100%);
-    cursor: pointer;
+    cursor: default;
 }
 
 .act-icons {
