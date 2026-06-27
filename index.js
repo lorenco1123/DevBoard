@@ -2,8 +2,6 @@ const searchInput = document.querySelector(".search-input");
 const sidebarBtn = document.querySelectorAll(".sidebar-buttons")
 let cards = document.querySelectorAll(".project-cards");
 
-
-
 // project count
 
 function projectCnt(){
@@ -78,3 +76,26 @@ mainDeleteBtn.addEventListener("click", function(){
     mainDeleteBtn.classList.toggle("active");
     projectCnt();
 }); 
+
+// mobile 
+
+const MobileBtns = document.querySelectorAll(".mobile-nav-btn")
+
+MobileBtns.forEach(btn => {
+    btn.addEventListener("click", function(){
+        MobileBtns.forEach(i => {
+            i.classList.remove("active")
+        });
+        this.classList.add("active");
+        let current = this.textContent.trim();
+        sidebarBtn.forEach(btn => {
+            if (btn.textContent.trim() ===  current) {
+                sidebarBtn.forEach(i => {
+                    i.classList.remove('focused')
+                })
+                btn.classList.add("focused")
+            }
+        })      
+    });    
+});
+
