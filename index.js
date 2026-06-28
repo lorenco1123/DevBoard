@@ -77,7 +77,7 @@ mainDeleteBtn.addEventListener("click", function(){
     projectCnt();
 }); 
 
-// mobile 
+// mobile btn sync
 
 const MobileBtns = document.querySelectorAll(".mobile-nav-btn")
 
@@ -89,13 +89,30 @@ MobileBtns.forEach(btn => {
         this.classList.add("active");
         let current = this.textContent.trim();
         sidebarBtn.forEach(btn => {
-            if (btn.textContent.trim() ===  current) {
+            if (btn.textContent.trim() === current){
                 sidebarBtn.forEach(i => {
-                    i.classList.remove('focused')
+                    i.classList.remove('focused');
                 })
-                btn.classList.add("focused")
+                btn.classList.add("focused");
             }
         })      
     });    
 });
+
+//desktop sidebar sync
+
+sidebarBtn.forEach(btn => {
+    btn.addEventListener("click", function(){
+        let current = this.textContent.trim();
+        MobileBtns.forEach(Mbtn => {
+            if (Mbtn.textContent.trim() === current){
+                MobileBtns.forEach(i => {
+                    i.classList.remove("active");
+                })
+                Mbtn.classList.add("active");
+            }
+        })
+    });
+});
+
 

@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <!-- animated background -->
+    <div id="falling-pattern"
+        style="position: fixed; inset: 0; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; z-index: -2; background-color: #000000;">
+        <div id="pattern-trigger" class="animate-fall" style="position: absolute; inset: 0; z-index: 0;"></div>
+        <div id="pattern-overlay" style="position: absolute; inset: 0; z-index: 1; filter: brightness(6);"></div>
+    </div>
     <div class="container">
         <!-- sidebar and buttons-->
         <aside class="sidebar">
@@ -58,8 +64,8 @@
                     </div>
 
                     <div class="notify">
-                        <button class="notification"><img class="notify-icon" src="./pngs/notification.png" alt="notifications"
-                                height="15"></button>
+                        <button class="notification"><img class="notify-icon" src="./pngs/notification.png"
+                                alt="notifications" height="15"></button>
                         <button id="Profile"><img class="Profile-img" src="./pngs/profile.png" alt="profile"
                                 height="50"></button>
                     </div>
@@ -112,9 +118,10 @@
                             <span id="Projects">Projects</span>
                             <button class="main-delete-btn"><img src="./pngs/delete.png" alt=""></button>
                             <button class="edit-delete-btn">...</button>
+                            <!-- edit-delete-add menu -->
                             <div class="menu">
-                                <button class="add"><img src="./pngs/add-post.png" alt="" style="filter: invert();">Add the
-                                    project</button>
+                                <button class="add"><img src="./pngs/add-post.png" alt="" 
+                                    style="filter: invert();">Add The Project</button>
                                 <button class="edit"><img src="./pngs/edit.png" alt=""
                                         style="filter: invert();">Edit</button>
                                 <button class="delete"><img src="./pngs/delete.png" alt="">Delete</button>
@@ -244,11 +251,11 @@
         </div>
 
     </div>
-    
+
     <nav class="mobile-nav" id="mobileNav">
         <button class="mobile-nav-btn active">
             <img src="./pngs/home-icon.png" alt="home">
-            <span>Home</span>
+            <span>Dashboard</span>
         </button>
         <button class="mobile-nav-btn">
             <img src="./pngs/folder-icon.png" alt="projects">
@@ -270,7 +277,7 @@
 
 
     <script src="index.js"></script>
-
+    <script src="falling-pattern.js"></script>
 </body>
 
 </html>
