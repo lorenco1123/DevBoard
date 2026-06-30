@@ -115,4 +115,33 @@ sidebarBtn.forEach(btn => {
     });
 });
 
+// notifications menu
+
+const NotifyMenu = document.querySelector(".notify-menu")
+const NotifyBtn = document.querySelector(".notification")
+
+// profile menu
+
+const ProfileMenu = document.querySelector(".profile-menu")
+const Profilebtn = document.querySelector(".Profile")
+
+NotifyBtn.addEventListener("click",function(){
+    NotifyMenu.classList.toggle("visible");
+});
+
+document.addEventListener("click",function(e){
+    if (e.target.closest('.notification') != NotifyBtn && e.target != NotifyMenu){
+        NotifyMenu.classList.remove("visible");
+    }
+})
+
+Profilebtn.addEventListener("click",function(){
+    ProfileMenu.classList.toggle("visible");
+});
+
+document.addEventListener("click",function(e){
+    if (e.target.closest('.Profile') != Profilebtn && !e.target.closest('.profile-menu') || e.target.closest('.prof-menu-btn')){
+        ProfileMenu.classList.remove("visible");
+    }
+})
 

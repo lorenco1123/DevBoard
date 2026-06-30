@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+/* background animation */
+
 @keyframes fall {
     0% {
         background-position: 0px 220px, 3px 220px, 151.5px 337.5px, 25px 24px, 28px 24px, 176.5px 150px, 50px 16px, 53px 16px, 201.5px 91px, 75px 224px, 78px 224px, 226.5px 230.5px, 100px 19px, 103px 19px, 251.5px 121px, 125px 120px, 128px 120px, 276.5px 187px, 150px 31px, 153px 31px, 301.5px 120.5px, 175px 235px, 178px 235px, 326.5px 384.5px, 200px 121px, 203px 121px, 351.5px 228.5px, 225px 224px, 228px 224px, 376.5px 364.5px, 250px 26px, 253px 26px, 401.5px 105px, 275px 75px, 278px 75px, 426.5px 180px;
@@ -36,30 +38,6 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
-
-/* body::after {
-    z-index: -1;
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(90deg, #141d31 0%, #05001f 50%, #23213f 100%);
-    animation: gradientAnimation 10s ease infinite;
-    background-size: 400% 400%;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-} */
 
 .container {
     display: flex;
@@ -143,6 +121,12 @@ body {
     font-weight: 600;
     animation: appearing 1.5s ease-in-out;
     outline: none;
+}
+
+.sidebar-buttons img,
+.profile-buttons img{
+    position: relative;
+    top: 2px;
 }
 
 .login-list {
@@ -314,6 +298,42 @@ body {
     filter: invert(1) brightness(1.3);
 }
 
+.notify {
+    position: relative;
+}
+
+.notify-menu.visible {
+    opacity: 1;
+    transform: translateX(-10px);
+    visibility: visible;
+}
+
+.notify-menu {
+    cursor: default;
+    font-family: "Montserrat Alternates", sans-serif;
+    z-index: 9999;
+    position: absolute;
+    right: 60px;
+    top: 50px;
+    background: rgba(143, 117, 177, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.068);
+    padding: 20px;
+    min-width: 300px;
+    min-height: 300px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    box-shadow: 0 8px 32px rgba(143, 117, 177, 0.05);
+    flex-direction: column;
+    color: #ffffff;
+    text-align: center;
+    gap: 10px;
+    font-size: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.4s ease, visibility 0.2s ease;
+}
+
 .notification {
     bottom: 10px;
     position: relative;
@@ -327,7 +347,104 @@ body {
     border-radius: 50%;
 }
 
-#Profile {
+.notification::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(224, 0, 0);
+    right: 3px;
+    top: 2px;
+}
+
+.profile-menu.visible {
+    opacity: 1;
+    transform: translateX(-10px);
+    visibility: visible;
+}
+
+.profile-menu {
+    cursor: default;
+    font-family: "Montserrat Alternates", sans-serif;
+    z-index: 9999;
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    background:rgba(24, 12, 43, 0.055);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.068);
+    padding: 20px;
+    min-width: 250px;
+    min-height: 200px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    box-shadow: 0 8px 32px rgba(143, 117, 177, 0.034);
+    flex-direction: column;
+    color: #ffffff;
+    text-align: center;
+    gap: 10px;
+    font-size: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.4s ease, visibility 0.2s ease;
+}
+
+.profile-menu .profile-logout {
+    margin-top: auto;
+}
+
+.profile-name {
+    color: #e6e5e9;
+}
+
+.profile-menu .logout-icon {
+    position: relative;
+    top: 2px;
+    height: 17px;
+    margin-right: 14px;
+    filter: invert() ;
+}
+
+.profile {
+    margin: 20px 0px 30px 0px;
+}
+
+.menu-profile-img{
+    height: 75px;
+}
+
+.profile-menu .logout{
+    color: red;
+}
+
+.profile-menu button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-menu button:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.profile-menu .logout:active {
+    background: rgba(124, 4, 4, 0.336);
+}
+
+.profile-menu button {
+    letter-spacing: 3px;
+    font-size: 15px;
+    font-family: "Montserrat Alternates", sans-serif;
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.Profile {
     margin-right: 20px;
     cursor: pointer;
     filter: brightness(0.7);
@@ -337,11 +454,11 @@ body {
     background: transparent;
 }
 
-#Profile:hover {
+.Profile:hover {
     filter: brightness(0.9);
 }
 
-#Profile:active {
+.Profile:active {
     filter: brightness(1.1);
 }
 
@@ -361,6 +478,10 @@ body {
     padding: 5px 10px;
     border-radius: 10px;
     flex: 1;
+}
+
+input[placeholder]{
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .navbar-container {
@@ -399,7 +520,7 @@ body {
     margin: 20px;
     flex: 1 1 200px;
     box-shadow: 0px 6px 10px #00000040;
-    transition: transform 0.4s, box-shadow 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     animation: appearing 2.5s ease-in-out;
     animation-timing-function: ease-in-out;
 }
@@ -424,13 +545,13 @@ body {
 }
 
 .third {
-    background: linear-gradient(320deg, #8f63ee 0%, #6726f1 80%, #9c76ec 100%);
-    box-shadow: 0px 4px 10px #5a2eb9;
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0.603) 0%, #6726f1 40%, #220b58 100%);
+    box-shadow: 0px 12px 25px rgba(103, 38, 241, 0.4);
 }
 
 .fourth {
-    box-shadow: 0px 4px 10px #328340;
-    background: linear-gradient(10deg, #8acc35f5 -40%, #136345 0%, #5bb14a 80%, #8edb28f5 100%);
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.685) 0%, #0072ff 40%, #00112c 100%);
+    box-shadow: 0px 12px 25px rgba(0, 114, 255, 0.35);
 }
 
 .content-icon {
@@ -456,23 +577,27 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.03);
 }
 
 .first:hover {
-    box-shadow: 0px 4px 10px #281d3d;
+    background: linear-gradient(320deg, #0d1525 0%, #a662ff15 50%, #a662ff44 100%);
+    box-shadow: 0px 20px 40px rgba(166, 98, 255, 0.2), inset 0px 0px 12px rgba(166, 98, 255, 0.15);
 }
 
 .second:hover {
-    box-shadow: 0px 8px 10px #22006b;
+    background: linear-gradient(130deg, #0d1525 0%, #a561ff10 50%, #a561ff33 100%);
+    box-shadow: 0px 20px 40px rgba(165, 97, 255, 0.18), inset 0px 0px 12px rgba(165, 97, 255, 0.15);
 }
 
 .third:hover {
-    box-shadow: 0px 8px 10px #7313c2;
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0.658) 0%, #7737ff 50%, #170443 100%);
+    box-shadow: 0px 25px 45px rgba(103, 38, 241, 0.65);
 }
 
 .fourth:hover {
-    box-shadow: 0px 4px 10px #37b426;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.76) 0%, #0084ff 50%, #000a1c 100%);
+    box-shadow: 0px 25px 45px rgba(0, 114, 255, 0.6);
 }
 
 .projects-container {
@@ -709,7 +834,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.menu>.delete {
+.menu >.delete {
     color: rgb(214, 29, 29);
 }
 
@@ -1006,7 +1131,7 @@ body {
     transform: translateX(-50%);
     z-index: 9999;
     background: #140f2d73;
-    backdrop-filter: blur(28px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 999px;
     padding: 10px 18px;
