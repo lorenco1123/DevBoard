@@ -2,8 +2,6 @@ const searchInput = document.querySelector(".search-input");
 const sidebarBtn = document.querySelectorAll(".sidebar-buttons")
 let cards = document.querySelectorAll(".project-cards");
 
-
-
 // project count
 
 function projectCnt(){
@@ -78,3 +76,72 @@ mainDeleteBtn.addEventListener("click", function(){
     mainDeleteBtn.classList.toggle("active");
     projectCnt();
 }); 
+
+// mobile btn sync
+
+const MobileBtns = document.querySelectorAll(".mobile-nav-btn")
+
+MobileBtns.forEach(btn => {
+    btn.addEventListener("click", function(){
+        MobileBtns.forEach(i => {
+            i.classList.remove("active")
+        });
+        this.classList.add("active");
+        let current = this.textContent.trim();
+        sidebarBtn.forEach(btn => {
+            if (btn.textContent.trim() === current){
+                sidebarBtn.forEach(i => {
+                    i.classList.remove('focused');
+                })
+                btn.classList.add("focused");
+            }
+        })      
+    });    
+});
+
+//desktop sidebar sync
+
+sidebarBtn.forEach(btn => {
+    btn.addEventListener("click", function(){
+        let current = this.textContent.trim();
+        MobileBtns.forEach(Mbtn => {
+            if (Mbtn.textContent.trim() === current){
+                MobileBtns.forEach(i => {
+                    i.classList.remove("active");
+                })
+                Mbtn.classList.add("active");
+            }
+        })
+    });
+});
+
+// notifications menu
+
+const NotifyMenu = document.querySelector(".notify-menu")
+const NotifyBtn = document.querySelector(".notification")
+
+// profile menu
+
+const ProfileMenu = document.querySelector(".profile-menu")
+const Profilebtn = document.querySelector(".Profile")
+
+NotifyBtn.addEventListener("click",function(){
+    NotifyMenu.classList.toggle("visible");
+});
+
+document.addEventListener("click",function(e){
+    if (e.target.closest('.notification') != NotifyBtn && e.target != NotifyMenu){
+        NotifyMenu.classList.remove("visible");
+    }
+})
+
+Profilebtn.addEventListener("click",function(){
+    ProfileMenu.classList.toggle("visible");
+});
+
+document.addEventListener("click",function(e){
+    if (e.target.closest('.Profile') != Profilebtn && !e.target.closest('.profile-menu') || e.target.closest('.prof-menu-btn')){
+        ProfileMenu.classList.remove("visible");
+    }
+})
+

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta>
     <link rel="stylesheet" href="style.css">
     <title>DevBoard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +12,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="./pngs/code.png">
 </head>
+
 <body>
+    <!-- animated background -->
+    <div id="falling-pattern"
+        style="position: fixed; inset: 0; width: 100vw; height: 100vh; overflow: hidden; pointer-events: none; z-index: -2; background-color: #000000;">
+        <div id="pattern-trigger" class="animate-fall" style="position: absolute; inset: 0; z-index: 0;"></div>
+        <div id="pattern-overlay" style="position: absolute; inset: 0; z-index: 1; filter: brightness(6);"></div>
+    </div>
     <div class="container">
+        <!-- sidebar and buttons-->
         <aside class="sidebar">
             <h1>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -25,49 +35,61 @@
             </h1>
             <hr class="line">
             <ul class="main-list ">
-                <li><a href="#"><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/home-icon.png" alt="home"
-                                height="15">Dashboard</button></a></li>
-                <li><a href="#"><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/folder-icon.png"
-                                alt="folder" height="15">Projects</button></a></li>
-                <li><a href="#"><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/analitics-icon.png"
-                                alt="analytics" height="15">Analytics</button></a></li>
-                <li><a href="#"><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/email.png" alt="email"
-                                height="15">Messages</button></a></li>
-                <li><a href="#"><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/settings.png"
-                                alt="settings" height="15">Settings</button></a></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/home-icon.png" alt="home"
+                            height="15">Dashboard</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/project.png" alt="folder"
+                            height="15">Projects</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/analitics.png" alt="analytics"
+                            height="15">Analytics</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/letter.png" alt="email"
+                            height="15">Messages</button></li>
+                <li><button class="sidebar-buttons"><img class="Dev-icon" src="./pngs/settings.png" alt="settings"
+                            height="15">Settings</button></li>
             </ul>
             <hr class="line">
 
             <ul class="login-list">
-                <li><a href="#"><button class="profile-buttons"><img class="Dev-icon" src="./pngs/user.png" alt="profile"
-                                height="15">Profile</button></a></li>
-                <li><a href="#"><button class="profile-buttons"><img class="Dev-icon" src="./pngs/turn-off.png" alt="logout"
-                                height="15">Logout</button></a></li>
+                <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/user.png" alt="profile"
+                            height="15">Profile</button></li>
+                <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/summer.png" alt="logout"
+                            height="15">Switch</button></li>
             </ul>
 
-            <a href="#" class="Profile-link">
-                <button class="Profile">
-                    <img id="Profile-img" src="./pngs/profile.png" alt="profile" height="50">
-                    <div class="Profile-text">
-                        <span>John Doe</span>
-                        <p>john.@example.com</p>
-                    </div>
-                </button>
-            </a>
         </aside>
-
+        <!-- Search , notification , profile -->
         <div class="main">
             <div class="navbar-container">
                 <nav class="navbar">
                     <div class="search">
                         <img class="search-icon" src="./pngs/magnifying-glass.png" alt="search" height="15">
-                        <input type="text" placeholder="Search..." class="search-input">
+                        <input type="text" placeholder="Search a project..." class="search-input">
                     </div>
 
                     <div class="notify">
-                        <a href="#"><img class="notify-icon" src="./pngs/notify.png" alt="notifications" height="15"></a>
-                        <a href="#" id="Profile"><img id="Profile-img" src="./pngs/profile.png" alt="profile"
-                                height="50"></a>
+                        <button class="notification"><img class="notify-icon" src="./pngs/notification.png"
+                                alt="notifications" height="15"></button>
+                        <button class="Profile"><img class="Profile-img" src="./pngs/profile.png" alt="profile"
+                                height="50"></button>
+                        <!-- notifications menu -->
+                        <div class="notify-menu">
+                            <p class="messages">notifications</p>
+                        </div>
+                        <!-- profile menu -->
+                        <div class="profile-menu">
+                            <div class="profile-header">
+                                <p>My Account</p>
+                            </div>
+                            <div class="profile">
+                                <img class="menu-profile-img" src="./pngs/profile.png" alt="profile">
+                                <p class="profile-name">John Doe</p>
+                            </div>
+                            <div class="profile-logout">
+                                <button class="prof-menu-btn">Change profile</button>
+                                <button class="prof-menu-btn logout"><img class="logout-icon" src="./pngs/turn-off.png"
+                                alt="Logout" height="15">Logout</button>
+                            </div>
+                        </div>
+
                     </div>
                 </nav>
                 <hr class="nav-line">
@@ -77,27 +99,30 @@
 
                     <div class="cards-container">
                         <div class="card first">
-                            <h3><img src="./pngs/folder-icon.png" alt="folder icon" height="20" class="content-icon">Projects
+                            <h3><img src="./pngs/folders.png" alt="folder icon" height="20"
+                                    class="content-icon">Projects
                             </h3>
-                            <span class="indicator ">12</span>
+                            <span class="indicator project-cnt">0</span>
                             <p class="details">+2 this week</p>
                         </div>
 
                         <div class="card second">
-                            <h3><img src="./pngs/checklist.png" alt="checklist icon" height="20" class="content-icon">Tasks
+                            <h3><img src="./pngs/document.png" alt="checklist icon" height="20"
+                                    class="content-icon">Tasks
                             </h3>
-                            <span class="indicator ">34</span>
+                            <span class="indicator">34</span>
                             <p class="details">+8 this week</p>
                         </div>
 
                         <div class="card third">
-                            <h3><img src="./pngs/git.png" alt="commit icon" height="20" class="content-icon">Commits</h3>
+                            <h3><img src="./pngs/git.png" alt="commit icon" height="20" class="content-icon">Commits
+                            </h3>
                             <span class="indicator ">128</span>
                             <p class="details">+32 this week</p>
                         </div>
 
                         <div class="card fourth">
-                            <h3><img src="./pngs/clock.png" alt="productivity icon" height="20"
+                            <h3><img src="./pngs/diagram.png" alt="productivity icon" height="20"
                                     class="content-icon">Productivity</h3>
                             <span class="indicator ">87%</span>
                             <p class="details">Good</p>
@@ -106,14 +131,23 @@
                 </section>
 
 
-                <!-- project+activity container -->
+                <!-- projects + activity container -->
                 <div class="bottom-row">
 
                     <div class="projects-container">
                         <!-- just the button and text in main container -->
                         <div class="Text-above">
                             <span id="Projects">Projects</span>
+                            <button class="main-delete-btn"><img src="./pngs/delete.png" alt=""></button>
                             <button class="edit-delete-btn">...</button>
+                            <!-- edit-delete-add menu -->
+                            <div class="menu">
+                                <button class="add"><img src="./pngs/add-post.png" alt="" style="filter: invert();">Add
+                                    The Project</button>
+                                <button class="edit"><img src="./pngs/edit.png" alt=""
+                                        style="filter: invert();">Edit</button>
+                                <button class="delete"><img src="./pngs/delete.png" alt="">Delete</button>
+                            </div>
                         </div>
 
                         <!-- Project cards container-->
@@ -121,42 +155,66 @@
                             <!-- Project cards -->
                             <div class="project-cards">
                                 <span class="Project-name">Productivity Tracker</span>
+                                <label for="check" class="checkbox-container">
+                                    <input type="checkbox" name="check" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
                                 <p class="project-text">Track your daily coding sessions and boost your productivity.
                                 </p>
-                                <div class="progress-bar"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-10"></div>
+                                </div>
                                 <div class="percentage">
-                                    <p id="percentage">+2 this week</p>
+                                    <p class="percentages">+2 this week</p>
                                     <button class="view">View</button>
                                 </div>
                             </div>
 
                             <div class="project-cards">
                                 <span class="Project-name">Task Manager</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
                                 <p class="project-text">Organize your workflow efficiently by managing tasks.</p>
-                                <div class="progress-bar"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-70"></div>
+                                </div>
                                 <div class="percentage">
-                                    <p id="percentage">+8 this week</p>
+                                    <p class="percentages">+8 this week</p>
                                     <button class="view">View</button>
                                 </div>
                             </div>
 
                             <div class="project-cards">
                                 <span class="Project-name">Ai assistant</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
                                 <p class="project-text">Get smart suggestions and automate repetitive tasks with an
                                     intelligent assistant.</p>
-                                <div class="progress-bar per50"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-50"></div>
+                                </div>
                                 <div class="percentage">
-                                    <p id="percentage">+50% <span class="progress">in progress</span></p>
+                                    <p class="percentages">+50% <span class="progress">in progress</span></p>
                                     <button class="view">View</button>
                                 </div>
                             </div>
 
                             <div class="project-cards">
                                 <span class="Project-name">Secure Cloud Sync</span>
+                                <label for="" class="checkbox-container">
+                                    <input type="checkbox" name="" class="card-checkbox">
+                                    <span class="custom-checkbox"></span>
+                                </label>
                                 <p class="project-text">Keep your data safe and accessible across many devices.</p>
-                                <div class="progress-bar per100"></div>
+                                <div class="progress-bar">
+                                    <div class="progress-bar-line w-100"></div>
+                                </div>
                                 <div class="percentage">
-                                    <p id="percentage">+100% <span class="complete">complete</span></p>
+                                    <p class="percentages">+100% <span class="complete">complete</span></p>
                                     <button class="view">View</button>
                                 </div>
                             </div>
@@ -216,7 +274,34 @@
 
     </div>
 
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-btn active">
+            <img src="./pngs/home-icon.png" alt="home">
+            <span>Dashboard</span>
+        </button>
+        <button class="mobile-nav-btn">
+            <img src="./pngs/project.png" alt="projects">
+            <span>Projects</span>
+        </button>
+        <button class="mobile-nav-btn">
+            <img src="./pngs/analitics.png" alt="analytics">
+            <span>Analytics</span>
+        </button>
+        <button class="mobile-nav-btn">
+            <img src="./pngs/letter.png" alt="messages">
+            <span>Messages</span>
+        </button>
+        <button class="mobile-nav-btn">
+            <img src="./pngs/settings.png" alt="settings">
+            <span>Settings</span>
+        </button>
+    </nav>
+
+
+    <script src="index.js"></script>
+    <script src="falling-pattern.js"></script>
 </body>
+
 </html>
 
 </body>
