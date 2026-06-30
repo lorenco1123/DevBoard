@@ -1122,6 +1122,12 @@ input[placeholder]{
     }
 }
 
+@media (max-width: 444px) {
+    .notify-menu {
+        right: 0;
+    }
+}
+
 /* nav mobile */
 .mobile-nav {
     display: none;
@@ -1217,6 +1223,7 @@ input[placeholder]{
 .mobile-nav-btn:active img {
     filter: invert(0.9) brightness(1.3);
 }
+
 
 /* active dot */
 .mobile-nav-btn.active::after {
