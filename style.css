@@ -4,6 +4,15 @@
     padding: 0;
 }
 
+/* theme */
+
+/* .lightTheme {
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --card-background-color: #ffffff57;
+    --card-shadow-color: rgba(0, 0, 0, 0.1);
+} */
+
 /* background animation */
 
 @keyframes fall {
@@ -358,6 +367,11 @@ body {
     top: 2px;
 }
 
+.empty {
+    margin: auto 0;
+    color: #a29cbb;
+}
+
 .profile-menu.visible {
     opacity: 1;
     transform: translateX(-10px);
@@ -377,7 +391,7 @@ body {
     padding: 20px;
     min-width: 250px;
     min-height: 200px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
     display: flex;
     box-shadow: 0 8px 32px rgba(143, 117, 177, 0.034);
     flex-direction: column;
@@ -460,6 +474,15 @@ body {
 
 .Profile:active {
     filter: brightness(1.1);
+}
+
+#profile-nav-line {
+    border: none;
+    height: 1px;
+    background-color: #ffffff65;
+    opacity: 0.2;
+    width: 100%;
+    margin: 3px;
 }
 
 .navbar {

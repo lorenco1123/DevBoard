@@ -51,10 +51,9 @@
             <ul class="login-list">
                 <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/user.png" alt="profile"
                             height="15">Profile</button></li>
-                <li><button class="profile-buttons"><img class="Dev-icon" src="./pngs/summer.png" alt="logout"
+                <li><button class="profile-buttons" id="Theme"><img class="Dev-icon Theme" src="./pngs/summer.png" alt="logout"
                             height="15">Switch</button></li>
             </ul>
-
         </aside>
         <!-- Search , notification , profile -->
         <div class="main">
@@ -73,6 +72,8 @@
                         <!-- notifications menu -->
                         <div class="notify-menu">
                             <p class="messages">notifications</p>
+                            <p class="empty">There is nothing...</p>
+                            <div class="notifies"></div>
                         </div>
                         <!-- profile menu -->
                         <div class="profile-menu">
@@ -83,6 +84,7 @@
                                 <img class="menu-profile-img" src="./pngs/profile.png" alt="profile">
                                 <p class="profile-name">John Doe</p>
                             </div>
+                            <hr id="profile-nav-line">
                             <div class="profile-logout">
                                 <button class="prof-menu-btn">Change profile</button>
                                 <button class="prof-menu-btn logout"><img class="logout-icon" src="./pngs/turn-off.png"

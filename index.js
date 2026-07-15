@@ -143,5 +143,17 @@ document.addEventListener("click",function(e){
     if (e.target.closest('.Profile') != Profilebtn && !e.target.closest('.profile-menu') || e.target.closest('.prof-menu-btn')){
         ProfileMenu.classList.remove("visible");
     }
-})
+});
+
+const ThemeBtn = document.getElementById("Theme")
+
+ThemeBtn.addEventListener("click", () => {
+    document.querySelector("body").classList.toggle("lightTheme")
+    if (document.querySelector("body").classList.contains("lightTheme")){
+        document.querySelector(".Theme").setAttribute("src", "./pngs/half-moon.png")
+    }
+    else {
+        document.querySelector(".Theme").setAttribute("src", "./pngs/summer.png")
+    }
+});
 

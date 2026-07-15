@@ -35,3 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
   overlay.style.backgroundImage = `radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, ${config.backgroundColor} 2px)`;
   overlay.style.backgroundSize = `${8 * config.density}px ${8 * config.density}px`;
 });
+
